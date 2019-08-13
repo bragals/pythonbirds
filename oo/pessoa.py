@@ -9,6 +9,9 @@ class Pessoa:
         return f'Olá {id(self)}'
 
 if __name__ == '__main__':
+    maria = Pessoa
+    maria.nome = 'Mariazinha'
+    print(maria.nome)
     lucas = Pessoa(nome='Lucas')
     marcos = Pessoa(nome='Marcos')
     joao = Pessoa(lucas, marcos, nome='João Batista')
@@ -19,5 +22,11 @@ if __name__ == '__main__':
 
     print(joao.nome)
     print(joao.idade)
+    joao.sobrenome = 'Braga'
+    print('Sobrenome do João:', joao.sobrenome)
     for filho in joao.filhos:
         print(filho.nome)
+
+    del joao.filhos
+    print(joao.__dict__)
+    print(lucas.__dict__)
